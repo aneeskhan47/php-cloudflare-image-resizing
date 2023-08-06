@@ -9,7 +9,7 @@
 </p>
 
 ------
-A PHP package to upload images to Cloudflare Images.
+A PHP package to generate Cloudflare Image URLs. based on [Cloudflare Image Resizing](https://developers.cloudflare.com/images/url-format).
 
 > **Requires [PHP 8.2+](https://php.net/releases/)**
 
