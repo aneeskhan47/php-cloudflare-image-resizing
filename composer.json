@@ -1,0 +1,64 @@
+{
+  "name": "aneeskhan47/php-cloudflare-image",
+  "description": "A PHP package to generate Cloudflare Image URLs",
+  "keywords": [
+    "php",
+    "cloudflare",
+    "image",
+    "url",
+    "cdn"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Anees Khan",
+      "email": "kingkhan2388@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.2.0"
+  },
+  "require-dev": {
+    "laravel/pint": "^1.10.1",
+    "pestphp/pest": "^2.6.3",
+    "phpstan/phpstan": "^1.10.18",
+    "rector/rector": "^0.15.25",
+    "symfony/var-dumper": "^6.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "AneesKhan47\\CloudflareImage\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "refacto": "rector",
+    "lint": "pint",
+    "test:refacto": "rector --dry-run",
+    "test:lint": "pint --test",
+    "test:types": "phpstan analyse --ansi",
+    "test:unit": "pest --colors=always",
+    "test": [
+      "@test:refacto",
+      "@test:lint",
+      "@test:types",
+      "@test:unit"
+    ]
+  }
+}
