@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AneesKhan47\CloudflareImage\Concerns;
+namespace AneesKhan47\CloudflareImageResizing\Concerns;
 
 trait HasOptions
 {

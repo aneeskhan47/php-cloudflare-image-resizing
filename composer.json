@@ -1,10 +1,11 @@
 {
-  "name": "aneeskhan47/php-cloudflare-image",
-  "description": "A PHP package to generate Cloudflare Image URLs",
+  "name": "aneeskhan47/php-cloudflare-image-resizing",
+  "description": "A PHP package to generate Cloudflare Image Resizing URLs",
   "keywords": [
     "php",
     "cloudflare",
     "image",
+    "resizing",
     "url",
     "cdn"
   ],
@@ -27,7 +28,7 @@
   },
   "autoload": {
     "psr-4": {
-      "AneesKhan47\\CloudflareImage\\": "src/"
+      "AneesKhan47\\CloudflareImageResizing\\": "src/"
     },
     "files": [
       "src/helpers.php"

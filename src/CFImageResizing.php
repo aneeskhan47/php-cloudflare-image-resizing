@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace AneesKhan47\CloudflareImage;
+namespace AneesKhan47\CloudflareImageResizing;
 
-use AneesKhan47\CloudflareImage\Concerns\HasOptions;
+use AneesKhan47\CloudflareImageResizing\Concerns\HasOptions;
 use Exception;
 
-final class CFImage
+final class CFImageResizing
 {
     use HasOptions;
 
     /**
-     * Create a new CFImage instance.
+     * Create a new CFImageResizing instance.
      *
      * @param  string|null  $url  The image URL.
      * @return void
@@ -23,7 +23,7 @@ final class CFImage
     }
 
     /**
-     * Make a new CFImage instance.
+     * Make a new CFImageResizing instance.
      *
      * @param  string|null  $url  The image URL.
      */

@@ -1,16 +1,16 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/aneeskhan47/php-cloudflare-image/main/art/banner.png" height="300" alt="PHP Cloudflare Image">
+    <img src="https://raw.githubusercontent.com/aneeskhan47/php-cloudflare-image-resizing/main/art/banner.png" height="300" alt="PHP Cloudflare Image">
     <p align="center">
-        <a href="https://github.com/aneeskhan47/php-cloudflare-image/actions"><img alt="GitHub Workflow Status (master)" src="https://github.com/aneeskhan47/php-cloudflare-image/actions/workflows/tests.yml/badge.svg"></a>
-        <a href="https://packagist.org/packages/aneeskhan47/php-cloudflare-image"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/aneeskhan47/php-cloudflare-image"></a>
-        <a href="https://packagist.org/packages/aneeskhan47/php-cloudflare-image"><img alt="Latest Version" src="https://img.shields.io/packagist/v/aneeskhan47/php-cloudflare-image"></a>
-        <a href="https://packagist.org/packages/aneeskhan47/php-cloudflare-image"><img alt="License" src="https://img.shields.io/packagist/l/aneeskhan47/php-cloudflare-image"></a>
+        <a href="https://github.com/aneeskhan47/php-cloudflare-image-resizing/actions"><img alt="GitHub Workflow Status (master)" src="https://github.com/aneeskhan47/php-cloudflare-image-resizing/actions/workflows/tests.yml/badge.svg"></a>
+        <a href="https://packagist.org/packages/aneeskhan47/php-cloudflare-image-resizing"><img alt="Total Downloads" src="https://img.shields.io/packagist/dt/aneeskhan47/php-cloudflare-image-resizing"></a>
+        <a href="https://packagist.org/packages/aneeskhan47/php-cloudflare-image-resizing"><img alt="Latest Version" src="https://img.shields.io/packagist/v/aneeskhan47/php-cloudflare-image-resizing"></a>
+        <a href="https://packagist.org/packages/aneeskhan47/php-cloudflare-image-resizing"><img alt="License" src="https://img.shields.io/packagist/l/aneeskhan47/php-cloudflare-image-resizing"></a>
     </p>
 </p>
 
 ------
 
-A PHP package to generate Cloudflare Image URLs. based on [Cloudflare Image Resizing](https://developers.cloudflare.com/images/url-format).
+A PHP package to generate Cloudflare Image Resizing URLs. based on [Cloudflare Image Resizing](https://developers.cloudflare.com/images/url-format).
 
 > [!IMPORTANT]  
 > Your domain/website must be on Cloudflare to use this package.
@@ -19,7 +19,7 @@ A PHP package to generate Cloudflare Image URLs. based on [Cloudflare Image Resi
 > **Requires [PHP 8.2+](https://php.net/releases/)**
 
 ```bash
-composer require aneeskhan47/php-cloudflare-image
+composer require aneeskhan47/php-cloudflare-image-resizing
 ```
 
 ------
@@ -39,11 +39,11 @@ This package provides a fluent API to generate Cloudflare Image Resizing URLs.
 ### 🚀 Usage
 
 ```php
-use AneesKhan47\CloudflareImage\CFImage;
+use AneesKhan47\CloudflareImageResizing\CFImageResizing;
 
 $url = 'https://example.com/uploads/2023/image.jpg';
 
-$image = CFImage::make($url)
+$image = CFImageResizing::make($url)
                 ->width(300)
                 ->height(300)
                 ->webp()
