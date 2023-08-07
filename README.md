@@ -30,6 +30,8 @@ Cloudflare Image Resizing is a feature that allows you to resize, crop, and conv
 
 So just by adding `/cdn-cgi/image/` to the beginning of the URL, you can utilize Cloudflare's image resizing feature.
 
+You can convert and resize images by requesting them via a specially-formatted URL. This way you do not need to write any code, only change HTML markup of your website to use the new URLs.
+
 For more information, please see the [Cloudflare Image Resizing documentation](https://developers.cloudflare.com/images/url-format).
 
 This package provides a fluent API to generate Cloudflare Image Resizing URLs.
