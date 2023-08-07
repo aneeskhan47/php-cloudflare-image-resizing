@@ -11,7 +11,8 @@
 ------
 A PHP package to generate Cloudflare Image URLs. based on [Cloudflare Image Resizing](https://developers.cloudflare.com/images/url-format).
 
-Your domain/website must be on Cloudflare to use this package.
+> [!IMPORTANT]  
+> Your domain/website must be on Cloudflare to use this package.
 ### ⚡️ Installation
 
 > **Requires [PHP 8.2+](https://php.net/releases/)**
@@ -25,6 +26,8 @@ composer require aneeskhan47/php-cloudflare-image
 Cloudflare Image Resizing is a feature that allows you to resize, crop, and convert images by simply changing the URL of the image. This is done by adding a set of image transformation parameters to the URL of the image, which Cloudflare will then use to generate a new image on the fly.
 
 So just by adding `/cdn-cgi/image/` to the beginning of the URL, you can utilize Cloudflare's image resizing feature.
+
+For more information, please see the [Cloudflare Image Resizing documentation](https://developers.cloudflare.com/images/url-format).
 
 This package provides a fluent API to generate Cloudflare Image Resizing URLs.
 ### 🚀 Usage
