@@ -52,6 +52,9 @@ $image = CFImageResizing::make($url)->build();
 
 // output: 
 // https://example.com/cdn-cgi/image/format=auto/uploads/2023/image.jpg
+
+// note: format=auto is added by default to the URL as it is required 
+// by Cloudflare to have atleast one transformation applied.
 ```
 
 #### Generating a URL with transformations
