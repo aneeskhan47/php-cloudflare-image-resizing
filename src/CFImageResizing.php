@@ -53,6 +53,11 @@ final class CFImageResizing
         // Construct the options string
         $options = [];
 
+        // if there are no options, we add the default format auto
+        if (blank($this->options)) {
+            $this->format('auto');
+        }
+
         foreach ($this->options as $key => $value) {
             $options[] = "{$key}={$value}";
         }
