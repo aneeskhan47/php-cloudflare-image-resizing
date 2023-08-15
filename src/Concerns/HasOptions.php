@@ -35,7 +35,7 @@ trait HasOptions
      *
      * @see https://developers.cloudflare.com/images/image-resizing/url-format/#anim
      */
-    private function anim(bool $anim): static
+    public function anim(bool $anim): static
     {
         $this->options['anim'] = $anim;
 
@@ -49,7 +49,7 @@ trait HasOptions
      *
      * @see https://developers.cloudflare.com/images/image-resizing/url-format/#background
      */
-    private function background(string $background): static
+    public function background(string $background): static
     {
         $this->options['background'] = $background;
 
@@ -63,7 +63,7 @@ trait HasOptions
      *
      * @see https://developers.cloudflare.com/images/image-resizing/url-format/#blur
      */
-    private function blur(int $blur): static
+    public function blur(int $blur): static
     {
         $this->options['blur'] = $blur;
 
@@ -75,7 +75,7 @@ trait HasOptions
      *
      * @param  string  $brightness  The brightness value of 1.0 equals no change, a value of 0.5 equals half brightness, and a value of 2.0 equals twice as bright. 0 is ignored.
      */
-    private function brightness(string $brightness): static
+    public function brightness(string $brightness): static
     {
         $this->options['brightness'] = $brightness;
 
@@ -85,7 +85,7 @@ trait HasOptions
     /**
      * Set the image format.
      */
-    private function format(string $format): static
+    public function format(string $format): static
     {
         $this->options['format'] = $format;
 
