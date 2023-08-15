@@ -41,20 +41,40 @@ This package provides a fluent API to generate Cloudflare Image Resizing URLs.
 
 ### 🚀 Usage
 
+#### Generating a URL without any transformations
+
+```php
+use AneesKhan47\CloudflareImageResizing\CFImageResizing;
+
+$url = 'https://example.com/uploads/2023/image.jpg';
+
+$image = CFImageResizing::make($url)->build();
+
+// output: 
+// https://example.com/cdn-cgi/image/format=auto/uploads/2023/image.jpg
+```
+
+#### Generating a URL with transformations
+
 ```php
 use AneesKhan47\CloudflareImageResizing\CFImageResizing;
 
 $url = 'https://example.com/uploads/2023/image.jpg';
 
 $image = CFImageResizing::make($url)
-                ->width(300)
-                ->height(300)
-                ->webp()
-                ->quality(80)
-                ->build();
+                        ->width(300)
+                        ->height(300)
+                        ->webp()
+                        ->quality(80)
+                        ->build();
 
+// output: 
 // https://example.com/cdn-cgi/image/width=300,height=300,format=webp,quality=80/uploads/2023/image.jpg
 ```
+
+#### Available transformations
+
+Please see the available transformations [here](src/Concerns/HasOptions.php).
 
 ------
 
