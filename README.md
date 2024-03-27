@@ -12,9 +12,6 @@
 
 A PHP package to generate Cloudflare Image Resizing URLs. based on [Cloudflare Image Resizing](https://developers.cloudflare.com/images/url-format).
 
-> [!IMPORTANT]  
-> Your domain/website must be on Cloudflare (Pro, Business, and Enterprise plans) to use this package.
-
 ### ⚡️ Installation
 
 > **Requires [PHP 8.2+](https://php.net/releases/)**
