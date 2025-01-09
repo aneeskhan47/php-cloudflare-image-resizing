@@ -17,7 +17,7 @@ final class CFImageResizing
      * @param  string|null  $url  The image URL.
      * @return void
      */
-    public function __construct(string $url = null)
+    public function __construct(?string $url = null)
     {
         $this->url($url);
     }
@@ -27,7 +27,7 @@ final class CFImageResizing
      *
      * @param  string|null  $url  The image URL.
      */
-    public static function make(string $url = null): static
+    public static function make(?string $url = null): static
     {
         return new self($url);
     }
