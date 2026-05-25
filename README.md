@@ -10,7 +10,7 @@
 
 ------
 
-A PHP package to generate Cloudflare Image Resizing URLs. based on [Cloudflare Image Optimization](https://developers.cloudflare.com/images/optimization/features/).
+A PHP package to generate Cloudflare Image Resizing/Optimization URLs. based on [Cloudflare Image Optimization](https://developers.cloudflare.com/images/optimization/features/).
 
 ### ⚡️ Installation
 
@@ -32,7 +32,7 @@ You can convert and resize images by requesting them via a specially-formatted U
 
 For more information, please see the [Cloudflare Image Optimization documentation](https://developers.cloudflare.com/images/optimization/features/).
 
-This package provides a fluent API to generate Cloudflare Image Resizing URLs.
+This package provides a fluent API to generate Cloudflare Image Resizing/Optimization URLs.
 
 ------
 
