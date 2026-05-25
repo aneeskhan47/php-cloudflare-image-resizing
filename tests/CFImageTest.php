@@ -48,3 +48,18 @@ it('will not modify the image url if it already has /cdn-cgi/image', function ()
 
     expect($cfImage->build())->toBe('https://example.com/cdn-cgi/image/image.jpg');
 });
+
+it('will include new transformation parameters in the url', function () {
+    $url = 'https://example.com/image.jpg';
+
+    $cfImage = CFImageResizing::make($url)
+        ->flip('h')
+        ->segmentForeground()
+        ->slowConnectionQuality('low')
+        ->zoom(0.5)
+        ->quality('high')
+        ->width('auto')
+        ->build();
+
+    expect($cfImage)->toBe('https://example.com/cdn-cgi/image/flip=h,segment=foreground,slow-connection-quality=low,zoom=0.5,quality=high,width=auto/image.jpg');
+});

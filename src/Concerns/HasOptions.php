@@ -33,7 +33,7 @@ trait HasOptions
      *
      * @param  bool  $anim  Whether to animate the image
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#anim
+     * @see https://developers.cloudflare.com/images/optimization/features/#anim
      */
     public function anim(bool $anim): static
     {
@@ -47,7 +47,7 @@ trait HasOptions
      *
      * @param  string  $background  The background color in css format. hex, rgb, rgba, hsl, hsla
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#background
+     * @see https://developers.cloudflare.com/images/optimization/features/#background
      */
     public function background(string $background): static
     {
@@ -61,7 +61,7 @@ trait HasOptions
      *
      * @param  int  $blur  The blur radius between 1 (slight blur) and 250 (maximum)
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#blur
+     * @see https://developers.cloudflare.com/images/optimization/features/#blur
      */
     public function blur(int $blur): static
     {
@@ -87,7 +87,7 @@ trait HasOptions
      *
      * @param  string  $compression  The compression value
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#compression
+     * @see https://developers.cloudflare.com/images/optimization/features/#compression
      */
     public function compression(string $compression): static
     {
@@ -101,7 +101,7 @@ trait HasOptions
      *
      * @param  float  $contrast  A value of 1.0 equals no change, 0.5 equals low contrast, and 2.0 equals high contrast
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#contrast
+     * @see https://developers.cloudflare.com/images/optimization/features/#contrast
      */
     public function contrast(float $contrast): static
     {
@@ -115,7 +115,7 @@ trait HasOptions
      *
      * @param  int  $dpr  Multiplier for width/height that makes it easier to specify higher-DPI sizes
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#dpr
+     * @see https://developers.cloudflare.com/images/optimization/features/#dpr
      */
     public function dpr(int $dpr): static
     {
@@ -127,9 +127,9 @@ trait HasOptions
     /**
      * Set the fit mode.
      *
-     * @param  string  $fit  The fit mode (scale-down, contain, cover, crop, pad)
+     * @param  string  $fit  The fit mode (scale-down, contain, cover, crop, pad, squeeze)
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#fit
+     * @see https://developers.cloudflare.com/images/optimization/features/#fit
      */
     public function fit(string $fit): static
     {
@@ -139,11 +139,25 @@ trait HasOptions
     }
 
     /**
+     * Flip the image horizontally, vertically, or both.
+     *
+     * @param  string  $flip  One of h, v, or hv
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#flip
+     */
+    public function flip(string $flip): static
+    {
+        $this->options['flip'] = $flip;
+
+        return $this;
+    }
+
+    /**
      * Set the format.
      *
      * @param  string  $format  The format (avif, webp, jpeg, baseline-jpeg, json)
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#format
+     * @see https://developers.cloudflare.com/images/optimization/features/#format
      */
     public function format(string $format): static
     {
@@ -197,7 +211,7 @@ trait HasOptions
      *
      * @param  float  $gamma  A value of 1.0 equals no change, 0.5 darkens the image, and 2.0 lightens the image.
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#gamma
+     * @see https://developers.cloudflare.com/images/optimization/features/#gamma
      */
     public function gamma(float $gamma): static
     {
@@ -209,9 +223,9 @@ trait HasOptions
     /**
      * Set the gravity for cropping.
      *
-     * @param  string  $gravity  Either 'auto', a side ('left', 'right', 'top', 'bottom').
+     * @param  string  $gravity  auto, face, a side (left, right, top, bottom), or coordinates (e.g. 0.5x1)
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#gravity
+     * @see https://developers.cloudflare.com/images/optimization/features/#gravity
      */
     public function gravity(string $gravity): static
     {
@@ -225,7 +239,7 @@ trait HasOptions
      *
      * @param  int  $height  The height value in pixels
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#height
+     * @see https://developers.cloudflare.com/images/optimization/features/#height
      */
     public function height(int $height): static
     {
@@ -239,7 +253,7 @@ trait HasOptions
      *
      * @param  string  $metadata  The metadata mode (keep, copyright, none)
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#metadata
+     * @see https://developers.cloudflare.com/images/optimization/features/#metadata
      */
     public function metadata(string $metadata): static
     {
@@ -253,7 +267,7 @@ trait HasOptions
      *
      * @param  string  $onerror  The onerror mode (redirect, none)
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#onerror
+     * @see https://developers.cloudflare.com/images/optimization/features/#onerror
      */
     public function onerror(string $onerror): static
     {
@@ -265,11 +279,11 @@ trait HasOptions
     /**
      * Set the quality.
      *
-     * @param  int  $quality  The quality value between 1 (lowest quality) and 100 (highest quality)
+     * @param  int|string  $quality  1-100, or perceptual: high, medium-high, medium-low, low
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#quality
+     * @see https://developers.cloudflare.com/images/optimization/features/#quality
      */
-    public function quality(int $quality): static
+    public function quality(int|string $quality): static
     {
         $this->options['quality'] = $quality;
 
@@ -277,11 +291,47 @@ trait HasOptions
     }
 
     /**
+     * Override quality on slow connections (Chromium browsers with client hints).
+     *
+     * @param  int|string  $quality  Same values as quality (1-100 or perceptual levels)
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#slow-connection-quality
+     */
+    public function slowConnectionQuality(int|string $quality): static
+    {
+        $this->options['slow-connection-quality'] = $quality;
+
+        return $this;
+    }
+
+    /**
+     * Isolate the image subject by replacing the background with transparent pixels.
+     *
+     * @param  string  $segment  Currently only foreground is supported
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#segment
+     */
+    public function segment(string $segment = 'foreground'): static
+    {
+        $this->options['segment'] = $segment;
+
+        return $this;
+    }
+
+    /**
+     * Set segment to foreground. Alias for segment('foreground').
+     */
+    public function segmentForeground(): static
+    {
+        return $this->segment('foreground');
+    }
+
+    /**
      * Set the rotate angle.
      *
      * @param  int  $rotate  Number of degrees (90, 180, or 270) to rotate the image
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#rotate
+     * @see https://developers.cloudflare.com/images/optimization/features/#rotate
      */
     public function rotate(int $rotate): static
     {
@@ -295,7 +345,7 @@ trait HasOptions
      *
      * @param  float  $saturation  A value of 1.0 equals no change, 0.5 equals half saturation, and 2.0 equals twice as saturated
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#saturation
+     * @see https://developers.cloudflare.com/images/optimization/features/#saturation
      */
     public function saturation(float $saturation): static
     {
@@ -309,7 +359,7 @@ trait HasOptions
      *
      * @param  float  $sharpen  Value between 0 (no sharpening) and 10 (maximum)
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#sharpen
+     * @see https://developers.cloudflare.com/images/optimization/features/#sharpen
      */
     public function sharpen(float $sharpen): static
     {
@@ -321,9 +371,9 @@ trait HasOptions
     /**
      * Set the trim values.
      *
-     * @param  string  $trim  The trim value in the form of `top;right;bottom;left`
+     * @param  string  $trim  border, top;right;bottom;left, or other trim values accepted by Cloudflare
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#trim
+     * @see https://developers.cloudflare.com/images/optimization/features/#trim
      */
     public function trim(string $trim): static
     {
@@ -333,15 +383,77 @@ trait HasOptions
     }
 
     /**
+     * Trim the image based on its border color.
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#trim
+     */
+    public function trimBorder(): static
+    {
+        return $this->trim('border');
+    }
+
+    /**
+     * Set the border color to trim when using trim=border.
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#trim
+     */
+    public function trimBorderColor(string $color): static
+    {
+        $this->options['trim.border.color'] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Set how closely border pixels must match when using trim=border.
+     *
+     * @param  int  $tolerance  Integer between 0 and 255
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#trim
+     */
+    public function trimBorderTolerance(int $tolerance): static
+    {
+        $this->options['trim.border.tolerance'] = $tolerance;
+
+        return $this;
+    }
+
+    /**
+     * Set how many pixels of the original border to leave when using trim=border.
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#trim
+     */
+    public function trimBorderKeep(int $keep): static
+    {
+        $this->options['trim.border.keep'] = $keep;
+
+        return $this;
+    }
+
+    /**
      * Set the width.
      *
-     * @param  int  $width  The width value in pixels
+     * @param  int|string  $width  Width in pixels, or auto for responsive width
      *
-     * @see https://developers.cloudflare.com/images/transform-images/transform-via-url/#width
+     * @see https://developers.cloudflare.com/images/optimization/features/#width
      */
-    public function width(int $width): static
+    public function width(int|string $width): static
     {
         $this->options['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Set how closely the image is cropped toward detected faces when using gravity=face.
+     *
+     * @param  float  $zoom  Value between 0.0 and 1.0
+     *
+     * @see https://developers.cloudflare.com/images/optimization/features/#zoom
+     */
+    public function zoom(float $zoom): static
+    {
+        $this->options['zoom'] = $zoom;
 
         return $this;
     }

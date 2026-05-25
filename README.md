@@ -10,7 +10,7 @@
 
 ------
 
-A PHP package to generate Cloudflare Image Resizing URLs. based on [Cloudflare Image Resizing](https://developers.cloudflare.com/images/transform-images/transform-via-url).
+A PHP package to generate Cloudflare Image Resizing URLs. based on [Cloudflare Image Optimization](https://developers.cloudflare.com/images/optimization/features/).
 
 ### ⚡️ Installation
 
@@ -24,13 +24,13 @@ composer require aneeskhan47/php-cloudflare-image-resizing
 
 ### ❓ How it works
 
-Cloudflare Image Resizing is a feature that allows you to resize, crop, and convert images by simply changing the URL of the image. This is done by adding a set of image transformation parameters to the URL of the image, which Cloudflare will then use to generate a new image on the fly.
+Cloudflare Image Resizing/Optimization is a feature that allows you to resize, crop, and convert images by simply changing the URL of the image. This is done by adding a set of image transformation parameters to the URL of the image, which Cloudflare will then use to generate a new image on the fly.
 
 So just by adding `/cdn-cgi/image/` to the beginning of the URL, you can utilize Cloudflare's image resizing feature.
 
 You can convert and resize images by requesting them via a specially-formatted URL. This way you do not need to write any code, only change HTML markup of your website to use the new URLs.
 
-For more information, please see the [Cloudflare Image Resizing documentation](https://developers.cloudflare.com/images/transform-images/transform-via-url).
+For more information, please see the [Cloudflare Image Optimization documentation](https://developers.cloudflare.com/images/optimization/features/).
 
 This package provides a fluent API to generate Cloudflare Image Resizing URLs.
 
@@ -76,31 +76,40 @@ $image = CFImageResizing::make($url)
 
 | Transformation | Description | Cloudflare Docs |
 |---------------|-------------|---------------|
-| `anim(bool)` | Whether to animate the image | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#anim) |
-| `background(string)` | Background color in CSS format (hex, rgb, rgba, hsl, hsla) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#background) |
-| `blur(int)` | Blur radius between 1 (slight blur) and 250 (maximum) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#blur) |
-| `brightness(string)` | Value of 1.0 equals no change, 0.5 equals half brightness, 2.0 equals twice as bright | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#brightness) |
-| `compression(string)` | Compression value | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#compression) |
-| `contrast(float)` | Value of 1.0 equals no change, 0.5 equals low contrast, 2.0 equals high contrast | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#contrast) |
-| `dpr(int)` | Device pixel ratio multiplier for width/height | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#dpr) |
-| `fit(string)` | Fit mode (scale-down, contain, cover, crop, pad) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#fit) |
-| `format(string)` | Output format (avif, webp, jpeg, baseline-jpeg, json) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#format) |
-| `avif()` | Set the format to avif. alias for `format('avif')`. | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#format) |
-| `webp()` | Set the format to webp. alias for `format('webp')`. | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#format) |
-| `jpeg()` | Set the format to jpeg. alias for `format('jpeg')`. | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#format) |
-| `baselineJpeg()` | Set the format to baseline-jpeg. alias for `format('baseline-jpeg')`. | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#format) |
-| `json()` | Set the format to json. alias for `format('json')`. | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#format) |
-| `gamma(float)` | Value of 1.0 equals no change, 0.5 darkens, 2.0 lightens | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#gamma) |
-| `gravity(string)` | Cropping gravity (auto, left, right, top, bottom) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#gravity) |
-| `height(int)` | Height in pixels | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#height) |
-| `metadata(string)` | Metadata preservation mode (keep, copyright, none) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#metadata) |
-| `onerror(string)` | Error handling mode (redirect, none) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#onerror) |
-| `quality(int)` | Quality between 1 (lowest) and 100 (highest) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#quality) |
-| `rotate(int)` | Rotation degrees (90, 180, or 270) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#rotate) |
-| `saturation(float)` | Value of 1.0 equals no change, 0.5 equals half saturation, 2.0 equals twice as saturated | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#saturation) |
-| `sharpen(float)` | Sharpening strength between 0 (none) and 10 (maximum) | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#sharpen) |
-| `trim(string)` | Trim values in format "top;right;bottom;left" | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#trim) |
-| `width(int)` | Width in pixels | [Docs](https://developers.cloudflare.com/images/transform-images/transform-via-url/#width) |
+| `anim(bool)` | Whether to animate the image | [Docs](https://developers.cloudflare.com/images/optimization/features/#anim) |
+| `background(string)` | Background color in CSS format (hex, rgb, rgba, hsl, hsla) | [Docs](https://developers.cloudflare.com/images/optimization/features/#background) |
+| `blur(int)` | Blur radius between 1 (slight blur) and 250 (maximum) | [Docs](https://developers.cloudflare.com/images/optimization/features/#blur) |
+| `brightness(string)` | Value of 1.0 equals no change, 0.5 equals half brightness, 2.0 equals twice as bright | [Docs](https://developers.cloudflare.com/images/optimization/features/#brightness) |
+| `compression(string)` | Compression value (e.g. fast) | [Docs](https://developers.cloudflare.com/images/optimization/features/#compression) |
+| `contrast(float)` | Value of 1.0 equals no change, 0.5 equals low contrast, 2.0 equals high contrast | [Docs](https://developers.cloudflare.com/images/optimization/features/#contrast) |
+| `dpr(int)` | Device pixel ratio multiplier for width/height | [Docs](https://developers.cloudflare.com/images/optimization/features/#dpr) |
+| `fit(string)` | Fit mode (scale-down, contain, cover, crop, pad, squeeze) | [Docs](https://developers.cloudflare.com/images/optimization/features/#fit) |
+| `flip(string)` | Flip horizontally (h), vertically (v), or both (hv) | [Docs](https://developers.cloudflare.com/images/optimization/features/#flip) |
+| `format(string)` | Output format (auto, avif, webp, jpeg, baseline-jpeg, json) | [Docs](https://developers.cloudflare.com/images/optimization/features/#format) |
+| `avif()` | Set the format to avif. Alias for `format('avif')`. | [Docs](https://developers.cloudflare.com/images/optimization/features/#format) |
+| `webp()` | Set the format to webp. Alias for `format('webp')`. | [Docs](https://developers.cloudflare.com/images/optimization/features/#format) |
+| `jpeg()` | Set the format to jpeg. Alias for `format('jpeg')`. | [Docs](https://developers.cloudflare.com/images/optimization/features/#format) |
+| `baselineJpeg()` | Set the format to baseline-jpeg. Alias for `format('baseline-jpeg')`. | [Docs](https://developers.cloudflare.com/images/optimization/features/#format) |
+| `json()` | Set the format to json. Alias for `format('json')`. | [Docs](https://developers.cloudflare.com/images/optimization/features/#format) |
+| `gamma(float)` | Value of 1.0 equals no change, 0.5 darkens, 2.0 lightens | [Docs](https://developers.cloudflare.com/images/optimization/features/#gamma) |
+| `gravity(string)` | Cropping gravity (auto, face, left, right, top, bottom, or XxY coordinates) | [Docs](https://developers.cloudflare.com/images/optimization/features/#gravity) |
+| `height(int)` | Height in pixels | [Docs](https://developers.cloudflare.com/images/optimization/features/#height) |
+| `metadata(string)` | Metadata preservation mode (keep, copyright, none) | [Docs](https://developers.cloudflare.com/images/optimization/features/#metadata) |
+| `onerror(string)` | Error handling mode (redirect) | [Docs](https://developers.cloudflare.com/images/optimization/features/#onerror) |
+| `quality(int\|string)` | Quality 1-100 or perceptual (high, medium-high, medium-low, low) | [Docs](https://developers.cloudflare.com/images/optimization/features/#quality) |
+| `rotate(int)` | Rotation degrees (90, 180, or 270) | [Docs](https://developers.cloudflare.com/images/optimization/features/#rotate) |
+| `saturation(float)` | Value of 1.0 equals no change, 0.5 equals half saturation, 2.0 equals twice as saturated | [Docs](https://developers.cloudflare.com/images/optimization/features/#saturation) |
+| `segment(string)` | Background removal (foreground) | [Docs](https://developers.cloudflare.com/images/optimization/features/#segment) |
+| `segmentForeground()` | Alias for `segment('foreground')` | [Docs](https://developers.cloudflare.com/images/optimization/features/#segment) |
+| `sharpen(float)` | Sharpening strength between 0 (none) and 10 (maximum) | [Docs](https://developers.cloudflare.com/images/optimization/features/#sharpen) |
+| `slowConnectionQuality(int\|string)` | Override quality on slow connections | [Docs](https://developers.cloudflare.com/images/optimization/features/#slow-connection-quality) |
+| `trim(string)` | Trim value (border, top;right;bottom;left, etc.) | [Docs](https://developers.cloudflare.com/images/optimization/features/#trim) |
+| `trimBorder()` | Trim sides based on border color | [Docs](https://developers.cloudflare.com/images/optimization/features/#trim) |
+| `trimBorderColor(string)` | Border color to trim when using trim=border | [Docs](https://developers.cloudflare.com/images/optimization/features/#trim) |
+| `trimBorderTolerance(int)` | Color match tolerance (0-255) when using trim=border | [Docs](https://developers.cloudflare.com/images/optimization/features/#trim) |
+| `trimBorderKeep(int)` | Pixels of border to leave when using trim=border | [Docs](https://developers.cloudflare.com/images/optimization/features/#trim) |
+| `width(int\|string)` | Width in pixels, or auto for responsive width | [Docs](https://developers.cloudflare.com/images/optimization/features/#width) |
+| `zoom(float)` | Face crop zoom (0.0-1.0) when using gravity=face | [Docs](https://developers.cloudflare.com/images/optimization/features/#zoom) |
 
 ------
 
