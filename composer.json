@@ -1,11 +1,12 @@
 {
   "name": "aneeskhan47/php-cloudflare-image-resizing",
-  "description": "A PHP package to generate Cloudflare Image Resizing URLs",
+  "description": "A PHP package to generate Cloudflare Image Resizing/Optimization URLs",
   "keywords": [
     "php",
     "cloudflare",
     "image",
     "resizing",
+    "optimization",
     "url",
     "cdn"
   ],
